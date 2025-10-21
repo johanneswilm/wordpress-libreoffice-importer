@@ -1,0 +1,89 @@
+{
+  "name": "wordpress-libreoffice-importer",
+  "version": "1.0.0",
+  "description": "Import WordPress posts from LibreOffice documents (ODT files or copy/paste). Automatically extracts title, author, abstract, images, footnotes, and formatting.",
+  "main": "assets/js/admin.js",
+  "scripts": {
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix",
+    "format": "prettier --write \"assets/**/*.{js,css}\"",
+    "format:check": "prettier --check \"assets/**/*.{js,css}\"",
+    "build:css": "postcss assets/css/admin.css -o assets/css/admin.min.css --no-map",
+    "build:js": "uglifyjs assets/js/admin.js -o assets/js/admin.min.js --compress --mangle",
+    "build": "npm run build:css && npm run build:js",
+    "watch:css": "postcss assets/css/admin.css -o assets/css/admin.min.css --watch",
+    "watch:js": "watchify assets/js/admin.js -o assets/js/admin.min.js",
+    "dev": "npm run watch:css & npm run watch:js",
+    "test": "echo \"No JavaScript tests configured yet\" && exit 0",
+    "precommit": "npm run lint && npm run format:check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johanneswilm/wordpress-libreoffice-importer.git"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "libreoffice",
+    "odt",
+    "import",
+    "document",
+    "writer",
+    "opendocument",
+    "openoffice"
+  ],
+  "author": {
+    "name": "Johannes Wilm",
+    "email": "mail@johanneswilm.org",
+    "url": "https://github.com/johanneswilm"
+  },
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/johanneswilm/wordpress-libreoffice-importer/issues"
+  },
+  "homepage": "https://github.com/johanneswilm/wordpress-libreoffice-importer#readme",
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^17.0.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.2",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.1.1",
+    "uglify-js": "^3.17.4",
+    "watchify": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@wordpress/eslint-plugin/recommended",
+      "prettier"
+    ],
+    "env": {
+      "browser": true,
+      "jquery": true
+    },
+    "globals": {
+      "libreofficeImporter": "readonly",
+      "wp": "readonly"
+    }
+  }
+}

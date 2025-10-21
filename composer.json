@@ -1,0 +1,77 @@
+{
+    "name": "johanneswilm/wordpress-libreoffice-importer",
+    "description": "Import WordPress posts from LibreOffice documents (ODT files or copy/paste). Automatically extracts title, author, abstract, images, footnotes, and formatting.",
+    "type": "wordpress-plugin",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "libreoffice",
+        "odt",
+        "import",
+        "document",
+        "writer",
+        "opendocument"
+    ],
+    "homepage": "https://github.com/johanneswilm/wordpress-libreoffice-importer",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Johannes Wilm",
+            "email": "mail@johanneswilm.org",
+            "homepage": "https://github.com/johanneswilm",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/johanneswilm/wordpress-libreoffice-importer/issues",
+        "source": "https://github.com/johanneswilm/wordpress-libreoffice-importer"
+    },
+    "require": {
+        "php": ">=7.4",
+        "ext-zip": "*",
+        "ext-xml": "*",
+        "ext-dom": "*",
+        "ext-simplexml": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "suggest": {
+        "ext-mbstring": "For better string handling with UTF-8 content",
+        "ext-gd": "For additional image processing capabilities"
+    },
+    "autoload": {
+        "classmap": [
+            "includes/",
+            "admin/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LibreOfficeImporter\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs": "phpcs --standard=WordPress includes/ admin/",
+        "cbf": "phpcbf --standard=WordPress includes/ admin/",
+        "lint": "find . -type f -name '*.php' ! -path './vendor/*' -exec php -l {} \\;",
+        "check-all": [
+            "@lint",
+            "@cs",
+            "@test"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

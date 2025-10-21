@@ -1,0 +1,60 @@
+# EditorConfig for WordPress LibreOffice Importer
+# https://editorconfig.org
+
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# PHP files - WordPress uses tabs
+[*.php]
+indent_style = tab
+indent_size = 4
+max_line_length = 120
+
+# JavaScript files - tabs for WordPress compatibility
+[*.js]
+indent_style = tab
+indent_size = 4
+max_line_length = 120
+
+# CSS files - tabs for WordPress compatibility
+[*.css]
+indent_style = tab
+indent_size = 4
+max_line_length = 120
+
+# JSON files - spaces
+[*.json]
+indent_style = space
+indent_size = 2
+
+# YAML files - spaces
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown files
+[*.md]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Configuration files
+[{composer.json,package.json}]
+indent_style = space
+indent_size = 2
+
+# Makefiles - must use tabs
+[Makefile]
+indent_style = tab
+
+# Shell scripts
+[*.sh]
+indent_style = tab
+indent_size = 4
